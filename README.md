@@ -2,6 +2,7 @@ drugrant
 ========
 
 Drupal-ready Vagrant VM based on Ubuntu 14.04 LAMP stack.
+It allows easy setup of VMs for running Drupal 7 or 8.
 
 ## Requirements
 
@@ -14,7 +15,7 @@ Drupal-ready Vagrant VM based on Ubuntu 14.04 LAMP stack.
 vagrant up --provider virtualbox
 ```
 
-This command will create a VM controlled by Vagrant.
+This command will load and create a VM controlled by Vagrant.
 
 At this to your hosts file to access the VM:
 
