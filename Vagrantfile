@@ -19,6 +19,7 @@ $my_noproxy          = "#{$my_hostname}" unless defined? $my_noproxy
 $my_halt_timeout     = 30 unless defined? $my_halt_timeout
 $my_cpus             = 1 unless defined? $my_cpus
 $my_sql_host_port    = 3306 unless defined? $my_sql_host_port
+$my_solr_host_port   = 8080 unless defined? $my_solr_host_port
 
 # Lokale Anpassungen laden.
 # Beispiel für eine Vagrantfile.local, mit der eine weitere VM im Host gestartet
@@ -53,6 +54,7 @@ Vagrant.configure("2") do |config|
     config.vm.graceful_halt_timeout = $my_halt_timeout
 
     config.vm.network "forwarded_port", guest: 3306, host: "#{$my_sql_host_port}", protocol: 'tcp'
+    config.vm.network "forwarded_port", guest: 8080, host: "#{$my_solr_host_port}", protocol: 'tcp'
 
     config.vm.provider :virtualbox do |vb, override|
         vb.gui = $my_gui
