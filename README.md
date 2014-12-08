@@ -32,7 +32,7 @@ vagrant up --provider virtualbox
 This command will load and create a VM controlled by Vagrant.
 It also installs the current stable Drupal version.
 
-Add this to your hosts file to access the VM:
+Add this to your local [hosts file](http://en.wikipedia.org/wiki/Hosts_(file)#Location_in_the_file_system) to access the VM:
 
 ```
 192.168.50.2 drugrant.dev.local
