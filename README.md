@@ -4,7 +4,7 @@ drugrant
 Drupal-ready Vagrant VM based on an Ubuntu 14.04 LAMP stack.
 
 It allows easy setup of VMs for running Drupal 7 or 8 without installing anything
-besides Virtualbox and Vagrant.
+besides Virtualbox or VMware as well as Vagrant.
 
 Getting a Drupal instance up and running that way makes evaluation or demonstration
 of ideas, Drupal modules and Drupal distributions easy.
@@ -23,10 +23,34 @@ of ideas, Drupal modules and Drupal distributions easy.
 * [Virtualbox](https://www.virtualbox.org/)
 * [Vagrant](https://www.vagrantup.com/)
 
+_(Both are free.)_
+
+OR
+
+* [VMware Fusion](http://www.vmware.com/products/fusion/) or [VMware Workstation](http://www.vmware.com/products/fusion/)
+* [Vagrant](https://www.vagrantup.com/)
+* [VMware provider for Vagrant](http://www.vagrantup.com/vmware)
+
+_(Better performance but you need to take some money in your hand.)_
+
 ## Usage
+
+Using Virtualbox:
 
 ```
 vagrant up --provider virtualbox
+```
+
+Using VMware Fusion:
+
+```
+vagrant up --provider vmware_fusion
+```
+
+Using VMware Workstation:
+
+```
+vagrant up --provider vmware_workstation
 ```
 
 This command will load and create a VM controlled by Vagrant.
@@ -38,7 +62,7 @@ Add this to your local [hosts file](http://en.wikipedia.org/wiki/Hosts_(file)#Lo
 192.168.50.2 drugrant.dev.local
 ```
 
-Fire it up in your browser using http://drugrant.dev.local.
+Open Drupal in your browser using this URI: http://drugrant.dev.local.
 User and Password is: admin / admin.
 
 ### Install Drupal
@@ -46,6 +70,8 @@ User and Password is: admin / admin.
 * Drupal 7 (latest): `PROVISION_ARGS="install drupal 7" vagrant provision`
 * Drupal 8 (latest): `PROVISION_ARGS="install drupal 8" vagrant provision`
 * Specific version e.g. Drupal 7.30: `PROVISION_ARGS="install drupal 7.30" vagrant provision`
+
+Run this commands from the host, not from the VM.
 
 ## Using more than one Drupal VMs
 
@@ -91,7 +117,4 @@ a debugger connecting to it. Back in the VM use the command `ddrush` instead of
 ## Notes
 
 * Drupal < 7.14 is not supported.
-
-## TODO
-
-* The box is available for Virtualbox only. VMware Fusion box is under progress.
+* Use the [vagrant-hostsupdater plugin](https://github.com/cogitatio/vagrant-hostsupdater) to automate adding/removing entries to your _hosts file_.
