@@ -118,4 +118,4 @@ a debugger connecting to it. Back in the VM use the command `ddrush` instead of
 
 * Drupal < 7.14 is not supported.
 * Use the [vagrant-hostsupdater plugin](https://github.com/cogitatio/vagrant-hostsupdater) to automate adding/removing entries to your _hosts file_.
-* For Mac users: Optionally add the directory containing the VM to your Timemachine exclusion list by running: `tmutil addexclusion ./.vagrant`. This way the VM will not be backed up by future Timemachin backups.
+* For Mac users: Optionally add the directory containing the VM to your Timemachine exclusion list by running: `tmutil addexclusion ./.vagrant`. This way the VM will not be backed up by future Timemachine backups.
