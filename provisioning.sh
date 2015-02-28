@@ -49,6 +49,9 @@ else
   apt-get update
   apt-get --yes dist-upgrade
 
+  echo "* Upgrade Composer"
+  /usr/local/bin/composer self-update
+
   echo "* Configure Memcached..."
   sed -i 's/^-m 64$/-m 128/g' /etc/memcached.conf
   service memcached restart
