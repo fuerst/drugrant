@@ -87,9 +87,9 @@ else
       > '/etc/mysql/conf.d/drupal.cnf'
 
   # Binary Log ausschalten - produziert unnötigen Overhead
-  sed -i -e 's/log_bin/#log_bin/' -e 's/expire_logs_days/#expire_logs_days/' /etc/mysql/my.cnf
+  sed -i -e 's/^log_bin/#log_bin/' -e 's/expire_logs_days/#expire_logs_days/' /etc/mysql/my.cnf
   # MySQL von außen per TCP erreichbar
-  sed -i -e 's/^bind-address   = 127.0.0.1$/bind-address    = 0.0.0.0/' /etc/mysql/my.cnf
+  sed -ie 's/^bind-address[ \t]*= 127.0.0.1$/bind-address = 0.0.0.0/' /etc/mysql/my.cnf
   service mysql restart
 
   echo "* Configure PHP..."
