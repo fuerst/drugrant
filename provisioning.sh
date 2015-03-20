@@ -49,6 +49,13 @@ else
   apt-get update
   apt-get --yes dist-upgrade
 
+  # Rebuild Virtualbox Guest Additions in case the Linux Kernel got updated above.
+  if [[ -f /etc/init.d/vboxadd ]]
+  then
+    echo "* Rebuild Virtualbox Guest Additions..."
+    /etc/init.d/vboxadd setup
+  fi
+
   echo "* Upgrade Composer"
   /usr/local/bin/composer self-update
 
